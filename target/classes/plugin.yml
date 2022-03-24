@@ -1,0 +1,11 @@
+name: InvTweaks
+prefix: InvTweaks
+version: 0.0.1
+author: ManatorDE
+api-version: 1.17
+main: de.manator.invtweaks.Main
+website: https://dev.bukkit.org/projects/invtweaks
+commands:
+  sort:
+    description: Sorts your inventory
+    permission: invtweaks.sort
