@@ -1,5 +1,7 @@
 package de.manator.invtweaks.events;
 
+import java.io.File;
+
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryCloseEvent;
@@ -7,16 +9,38 @@ import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
+import de.manator.invtweaks.Config;
+
 public class InvCloseEvent implements Listener {
+
+	private File dataFolder;
+
+	public InvCloseEvent(File dataFolder) {
+		this.dataFolder = dataFolder;
+	}
 
 	@EventHandler
 	public void onInvClose(InventoryCloseEvent e) {
 		Inventory inv = e.getInventory();
 
-		if (inv.getType() == InventoryType.CHEST || inv.getType() == InventoryType.BARREL) {
+		if (inv.getType() == InventoryType.CHEST && Config.isSortingEnabled(dataFolder, Config.CHEST)) {
 			ItemStack[] contents = inv.getContents();
 			inv.clear();
-
+			bubbleSort(contents);
+			inv.setContents(contents);
+		} else if (inv.getType() == InventoryType.BARREL && Config.isSortingEnabled(dataFolder, Config.BARREL)) {
+			ItemStack[] contents = inv.getContents();
+			inv.clear();
+			bubbleSort(contents);
+			inv.setContents(contents);
+		} else if (inv.getType() == InventoryType.SHULKER_BOX && Config.isSortingEnabled(dataFolder, Config.SHULKER)) {
+			ItemStack[] contents = inv.getContents();
+			inv.clear();
+			bubbleSort(contents);
+			inv.setContents(contents);
+		} else if (inv.getType() == InventoryType.ENDER_CHEST && Config.isSortingEnabled(dataFolder, Config.ENDER)) {
+			ItemStack[] contents = inv.getContents();
+			inv.clear();
 			bubbleSort(contents);
 			inv.setContents(contents);
 		}

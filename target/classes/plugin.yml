@@ -1,6 +1,6 @@
 name: InvTweaks
 prefix: InvTweaks
-version: 0.0.1
+version: 0.0.3
 author: ManatorDE
 api-version: 1.17
 main: de.manator.invtweaks.Main
@@ -9,3 +9,6 @@ commands:
   sort:
     description: Sorts your inventory
     permission: invtweaks.sort
+  invtweaks:
+    description: Base command for configs
+    permission: invtweaks.base
