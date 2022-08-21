@@ -1,6 +1,6 @@
 package de.manator.invtweaks.commands;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.bukkit.command.Command;
@@ -12,7 +12,7 @@ public class InvTweaksTab implements TabCompleter {
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
 		
-		ArrayList<String> list = new ArrayList<>();
+		LinkedList<String> list = new LinkedList<>();
 		
 		if(command.getName().equalsIgnoreCase("invtweaks")) {
 			if(args.length == 1) {

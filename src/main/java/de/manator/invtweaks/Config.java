@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Config {
@@ -56,7 +56,7 @@ public class Config {
 			createConfig(dataFolder);
 		}
 
-		ArrayList<String> lines = readLines(config);
+		LinkedList<String> lines = readLines(config);
 		
 		String type = getType(invtype);
 		
@@ -95,7 +95,7 @@ public class Config {
 			createConfig(dataFolder);
 		}
 
-		ArrayList<String> lines = readLines(config);
+		LinkedList<String> lines = readLines(config);
 		
 		String type = getType(invtype);
 		
@@ -120,8 +120,8 @@ public class Config {
 		}
 	}
 
-	private static ArrayList<String> readLines(File config) {
-		ArrayList<String> lines = new ArrayList<>();
+	private static LinkedList<String> readLines(File config) {
+		LinkedList<String> lines = new LinkedList<>();
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(config));
 
